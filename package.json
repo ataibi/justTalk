@@ -4,7 +4,7 @@
   "description": "Messaging App using electron.js",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ataibi/justTalk/issues"
   },
-  "homepage": "https://github.com/ataibi/justTalk#readme"
+  "homepage": "https://github.com/ataibi/justTalk#readme",
+  "dependencies": {
+    "electron": "^2.0.9"
+  }
 }
