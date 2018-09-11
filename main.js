@@ -2,16 +2,25 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow, Menu} = electron;
+const {app, BrowserWindow, Menu, Tray} = electron;
 
+const appIconPath = path.join(__dirname, 'images/appIcon.png');
+const appIcon = electron.nativeImage.createFromPath(appIconPath);
 let mainWindow;
 
 app.on('ready', function(){
+  const appTray = new Tray(appIcon);
+
   // Create mainWindow
-  mainWindow = new BrowserWindow({});
+  mainWindow = new BrowserWindow({
+    show: false,
+    icon: appIconPath,
+    tray: appTray,
+    title: 'Just Talk'
+    });
   // load html
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'mainWindow.html'),
+    pathname: path.join(__dirname, 'html/mainWindow.html'),
     protocol:'file:',
     slashes: true // equals file://workingDir/mainWindow.html
   }));
@@ -23,6 +32,9 @@ app.on('ready', function(){
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   // insert it
   Menu.setApplicationMenu(mainMenu);
+  mainWindow.once('ready-to-show', ()=>{
+    mainWindow.show()
+  });
 });
 
 // handle create new conversation window
@@ -30,10 +42,10 @@ function createNewConversationWindow(){
   NewConversationWindow = new BrowserWindow({
     width: 300,
     height: 200,
-    title: 'New Conversation'
+    title: 'New Conversation',
   });
   NewConversationWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'NewConversationWindow.html'),
+    pathname: path.join(__dirname, 'html/NewConversationWindow.html'),
     protocol: 'file:',
     slashes: true
   }));
@@ -50,6 +62,7 @@ const mainMenuTemplate = [
     submenu:[
       {
         label: 'New Conversation',
+        accelerator: process.platform == 'darwin' ? 'Command+N' : 'Ctrl+N',
         click(){
           createNewConversationWindow();
         }
@@ -88,7 +101,7 @@ if (process.env.NODE_ENV != 'production'){
         }
       },
       {
-        label: 'Reload',
+        label: 'Reload window',
         accelerator: process.platform == 'darwin' ? 'Command+R' : 'Ctrl+R',
         role: 'reload'
       }

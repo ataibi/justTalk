@@ -1,0 +1,51 @@
+body
+{
+  background-color: #BABABA;
+  min-height: 100%;
+}
+
+#conversationsPanel
+{
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 25vw;
+  height: 100vh;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 20px;
+  background-color: #AAAAAA;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+ul li
+{
+  list-style: none;
+}
+
+#conversations
+{
+  position: absolute;
+  left: 0;
+  padding: 0;
+}
+
+
+.contact
+{
+  background-color: #FFF;
+  padding: 10px;
+  margin: 1px;
+  height: 45px;
+  width: 25vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 20px;
+}
+
+.preview
+{
+  margin-left: 10px;
+}
