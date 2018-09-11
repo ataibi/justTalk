@@ -10,13 +10,14 @@ You choose a username and a three digits tag is assigned to you. Anyone who want
 Once you are set up, enter the username and tag of the person you want to talk to and _just talk_.
 
  **No traces left behind.**
+ 
  Once you close the app, you cannot recover your messages, they were never saved anywhere.
- You can also choose to reset your tag and username every time you start the app or keep them saved locally (it will be save by default to avoid the struggle of giving it to your friends again and again).
+ You can also choose to reset your tag and username every time you start the app or keep them saved locally (it will be saved by default to avoid the struggle of giving it to your friends again and again).
 ___
 
 ## Installation
 
-Well for the moment there are no builds of the app since it does nothing but you can...
+Well, for the moment there are no builds of the app since it does nothing but you can...
 
 ## Run it from source !
 You will need [npm](https://www.npmjs.com/get-npm) for that.
