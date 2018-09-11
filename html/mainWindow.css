@@ -1,22 +1,46 @@
 body
 {
-  background-color: #BABABA;
+  background-color: #6ac4c7;
   min-height: 100%;
+  font-family: 'NotoSansRegular';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 10pt;
 }
 
 #conversationsPanel
 {
-  left: 0;
+  right: 0;
   top: 0;
-  position: absolute;
+  position:fixed;
   width: 25vw;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: none;
   padding: 0;
-  padding-left: 5px;
+  padding-left: 10px;
   padding-right: 20px;
-  background-color: #AAAAAA;
+  background-color: rgba(0,0,0,.5);
   overflow-y: auto;
   overflow-x: hidden;
+  border-left: 2px solid #FFF;
+}
+
+#avatar
+{
+  font-size: 2.5em;
+  position: absolute;
+  margin: 10px auto auto 10px;
+  height: 30px;
+  width: 30px;
+  background-color: #AA0578;
+  padding: 10px;
+  text-align: center;
+  line-height: 35px;
+  right: 10px;
+  color: #FFF;
+  border-radius: 100%;
+  font-family: monospace;
+  font-weight: bolder;
 }
 
 ul li
@@ -27,6 +51,7 @@ ul li
 #conversations
 {
   position: absolute;
+  margin-top: 80px;
   left: 0;
   padding: 0;
 }
@@ -34,7 +59,7 @@ ul li
 
 .contact
 {
-  background-color: #FFF;
+  background-color: rgba(255,255,255,.2);
   padding: 10px;
   margin: 1px;
   height: 45px;
@@ -43,9 +68,122 @@ ul li
   text-overflow: ellipsis;
   white-space: nowrap;
   padding-right: 20px;
+  line-height: 1.5em;
+}
+
+.contact .title
+{
+
+  margin-bottom: 10px;
 }
 
 .preview
 {
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-top: 25px;
+}
+
+a, a:visited, a:active
+{
+  text-decoration: inherit;
+  color: inherit;
+}
+
+a:hover #avatar
+{
+  border-style:double;
+  padding: 8px;
+  border-width: 2px;
+  border-color: #FFF;
+}
+
+a:hover li
+{
+  z-index: 1000;
+  box-shadow: inset 1px 1px 25px 1px rgba(0,0,0,.1);
+}
+
+/* CONVERSATION STYLE */
+
+#conversationBody
+{
+  width: 70vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* background-color: #000; */
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+#conversation
+{
+  margin-top: 20px;
+  /* background-color: #F00; */
+  height: 80vh;
+  width: 70vw;
+  overflow-y: auto;
+}
+
+.message
+{
+  margin: 7px;
+  min-height: 20px;
+  max-width: 35vw;
+  vertical-align: middle;
+  line-height: 20px;
+  padding: 10px;
+  position: relative;
+  clear: both;
+  word-wrap: break-word;
+}
+
+.incoming
+{
+  background-color: #FFF;
+  border-radius: .4em;
+  float: left;
+}
+
+.incoming::after
+{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-right-color: #FFF;
+  border-left: 0;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+}
+
+.outgoing
+{
+  background-color: #FFF;
+  text-align: right;
+  float: right;
+  border-radius: .4em;
+  right: 10px;
+}
+
+.outgoing::after
+{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-left-color: #FFF;
+  border-right: 0;
+  margin-top: -0.5em;
+  margin-right: -0.5em;
+}
+
+#inputArea {
+  height: 20vh;
 }
